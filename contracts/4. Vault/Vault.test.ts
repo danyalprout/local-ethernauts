@@ -7,6 +7,7 @@ let victim: any;
 describe("Attacking Vault", function () {
   beforeEach(async () => {
     const Victim = await ethers.getContractFactory("Vault");
+    console.log(ethers.utils.formatBytes32String("A very strong password"));
     victim = await Victim.deploy(
       ethers.utils.formatBytes32String("A very strong password")
     );

